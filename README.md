@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+https://github.com/dimzeta/auto_route_bottom_nav_bar/assets/3192298/b9c920b0-4cc8-46f2-97f6-99386f0d825b
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
