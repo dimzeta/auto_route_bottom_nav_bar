@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:auto_route_riverpod_bottom_bar/router/app_router.gr.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -19,19 +18,15 @@ class LoginScreen extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                // GoRouter.of(context).go('/auth/register');
                 AutoRouter.of(context).pushNamed('/auth/register');
               },
               child: const Text('Go to Register'),
             ),
             ElevatedButton(
               onPressed: () {
-                // GoRouter.of(context).go('/teal');
-                AutoRouter.of(context).replaceAll([
-                  const HomeRoute(),
-                ]);
+                AutoRouter.of(context).replaceNamed('/dashboard');
               },
-              child: const Text('Home'),
+              child: const Text('Dashboard'),
             ),
           ],
         ),

@@ -2,26 +2,21 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
+class PostsScreen extends StatelessWidget {
+  const PostsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Register Page'),
+        title: const Text('Posts Page'),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: () {
-                AutoRouter.of(context).popTop('/auth/login');
-              },
-              child: const Text('Go back to login'),
-            ),
+            Text('Posts Page'),
           ],
         ),
       ),

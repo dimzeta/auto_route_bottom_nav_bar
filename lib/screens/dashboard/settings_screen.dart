@@ -2,34 +2,27 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class DetailsScreen extends StatelessWidget {
-  final int id;
-
-  const DetailsScreen({
-    super.key,
-    @PathParam('id') required this.id,
-  });
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Details Page'),
+        title: const Text('Settings Page'),
       ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Details Page'),
-            Text('id: $id'),
+            const Text('Settings Page'),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // GoRouter.of(context).go('/auth/register');
-                AutoRouter.of(context).pushNamed('/app/details-nested');
+                AutoRouter.of(context).pushNamed('/dashboard/settings/details');
               },
-              child: const Text('Go to nested details'),
+              child: const Text('Go to settings details'),
             ),
           ],
         ),

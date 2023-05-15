@@ -13,8 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
-      // Navigator.pushNamed(context, '/home');
+    Future.delayed(const Duration(seconds: 2), () {
       AutoRouter.of(context).replaceNamed('/auth/login');
     });
   }

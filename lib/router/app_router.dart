@@ -9,25 +9,43 @@ class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(path: '/splash', page: SplashRoute.page, initial: true),
-        // AutoRoute(path: '/auth/login', page: LoginRoute.page),
         CustomRoute(
           path: '/auth/login',
           page: LoginRoute.page,
-          transitionsBuilder: TransitionsBuilders.slideRight,
-          // transitionsBuilder: (
-          //   BuildContext context,
-          //   Animation<double> animation,
-          //   Animation<double> secondaryAnimation,
-          //   Widget child,
-          // ) {
-          //   // you get an animation object and a widget
-          //   // make your own transition
-          //   return ScaleTransition(scale: animation, child: child);
-          // },
+          transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
         AutoRoute(path: '/auth/register', page: RegisterRoute.page),
-        AutoRoute(path: '/app', page: HomeRoute.page),
-        AutoRoute(path: '/app/details/:id', page: DetailsRoute.page),
-        AutoRoute(path: '/app/details-nested', page: NestedDetailsRoute.page),
+        AutoRoute(
+          path: '/dashboard',
+          page: DashboardRoute.page,
+          children: [
+            RedirectRoute(path: '', redirectTo: 'users'),
+            AutoRoute(path: 'users', page: UsersTab.page, children: [
+              AutoRoute(path: '', page: UsersRoute.page),
+            ]),
+            AutoRoute(path: 'posts', page: PostsTab.page, children: [
+              AutoRoute(path: '', page: PostsRoute.page),
+            ]),
+            AutoRoute(path: 'settings', page: SettingsTab.page, children: [
+              AutoRoute(path: '', page: SettingsRoute.page),
+              AutoRoute(path: 'details', page: SettingsDetailsRoute.page),
+            ]),
+          ],
+        ),
       ];
+}
+
+@RoutePage(name: 'UsersTab')
+class UsersTabPage extends AutoRouter {
+  const UsersTabPage({super.key});
+}
+
+@RoutePage(name: 'PostsTab')
+class PostsTabPage extends AutoRouter {
+  const PostsTabPage({super.key});
+}
+
+@RoutePage(name: 'SettingsTab')
+class SettingsTabPage extends AutoRouter {
+  const SettingsTabPage({super.key});
 }
